@@ -1,9 +1,6 @@
 name: Build and Deploy Site
 
 on:
-  pull_request:
-    branches:
-      - master
   push:
     branches:
       - master
@@ -30,6 +27,6 @@ jobs:
       - name: Update deployment branch
         run: ./scripts/update-gh-pages.sh
         env:
-          DEPLOYMENT_BRANCH: test-deployment
+          DEPLOYMENT_BRANCH: deployment
           DEPLOYMENT_FOLDER: _site
           GITHUB_TOKEN: ${{ secrets.github_token }}
