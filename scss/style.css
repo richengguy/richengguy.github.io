@@ -9,8 +9,7 @@
         @apply text-blue-500;
     }
 
-    a:hover
-    {
+    a:hover {
         @apply underline text-blue-900;
     }
 }
