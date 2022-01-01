@@ -2,16 +2,17 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "concurrently": "^6.5.1",
+    "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "tailwindcss": "^3.0.8"
   },
   "scripts": {
-
-    "clean": "npx rimraf _build _site",
-    "css:build": "npx tailwindcss -i scss/style.css -o _build/css/style.css --minify",
-    "css:watch": "npx tailwindcss -i scss/style.css -o _build/css/style.css --watch",
+    "build": "npm-run-all css:build html:build",
+    "clean": "rimraf _build _site",
+    "css:build": "tailwindcss -i scss/style.css -o _build/css/style.css --minify",
+    "css:watch": "tailwindcss -i scss/style.css -o _build/css/style.css --watch",
     "html:build": "npx @11ty/eleventy",
     "html:watch": "npx @11ty/eleventy --serve",
-    "serve": "npx concurrently npm:css:watch npm:html:watch"
+    "serve": "concurrently npm:css:watch npm:html:watch"
   }
 }
