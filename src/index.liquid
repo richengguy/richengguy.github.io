@@ -16,8 +16,9 @@
                 page.
             </p>
             <ul class="list-disc pl-10">
-                {% for publication in collections.publication -%}
+                {% for publication in collections.publication reversed -%}
                 <li>
+                    {{ publication.date | date: "%Y" }} &hyphen;
                     <a href="{{ publication.url }}">{{ publication.data.title }}</a>
                     &nbsp;
                     [<a href="http://dx.doi.org/{{ publication.data.doi }}">{{ publication.data.doi }}</a>]
