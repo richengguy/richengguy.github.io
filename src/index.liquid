@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/style.css" rel="stylesheet"/>
+    <title>Richard Rzeszutek :: Projects</title>
+    <body>
+        <div class="font-sans container md:mx-auto md:w-4/6">
+            <h1 class="text-3xl font-semibold mb-4">
+                Selected Publications
+            </h1>
+            <p>
+                The following is a list of supplemental results from some of my
+                publications.  A full publications list is available on my
+                <a href="https://scholar.google.ca/citations?user=SWuGh3QAAAAJ">Google Scholar</a>
+                page.
+            </p>
+            <ul class="list-disc pl-10">
+                {% for publication in collections.publication -%}
+                <li>
+                    <a href="{{ publication.url }}">{{ publication.data.title }}</a>
+                    &nbsp;
+                    [<a href="http://dx.doi.org/{{ publication.data.doi }}">{{ publication.data.doi }}</a>]
+                </li>
+                {% endfor -%}
+            </ul>
+            <div class="mt-4">
+                &copy; {{ copyright.year }} Richard Rzeszutek
+            </div>
+        </div>
+    </body>
+</html>
