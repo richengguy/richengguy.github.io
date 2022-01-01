@@ -16,11 +16,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Checkout deployment branch
-        uses: actions/checkout@v2
-        with:
-          ref: test-deployment
-          path: _site
+      # - name: Checkout deployment branch
+      #   uses: actions/checkout@v2
+      #   with:
+      #     ref: test-deployment
+      #     path: _site
 
       - name: Setup Node.js 16 LTS (Gallium)
         uses: actions/setup-node@v2
@@ -36,5 +36,6 @@ jobs:
       - name: Update deployment branch
         run: ./scripts/update-gh-pages.sh
         env:
+          DEPLOYMENT_BRANCH: test-deployment
           DEPLOYMENT_FOLDER: _site
           GITHUB_TOKEN: ${{ secrets.github_token }}
