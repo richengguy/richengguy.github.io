@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-cd gh-pages
+cd ${DEPLOYMENT_FOLDER}
 
 # Need to use the GitHub authentication token to cause a gh-pages build.  More
 # details here;
