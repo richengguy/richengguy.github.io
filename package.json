@@ -5,7 +5,10 @@
     "tailwindcss": "^3.0.8"
   },
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "serve": "npx @11ty/eleventy --serve"
+    "css:build": "npx tailwindcss -i scss/style.css -o _build/css/style.css",
+    "css:watch": "npx tailwindcss -i scss/style.css -o _build/css/style.css --watch",
+    "html:build": "npx @11ty/eleventy",
+    "html:watch": "npx @11ty/eleventy --serve",
+    "serve": "npx concurrently npm:css:watch npm:html:watch"
   }
 }
