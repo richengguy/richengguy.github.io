@@ -6,27 +6,19 @@
     <link href="/css/style.css" rel="stylesheet"/>
     <title>Richard Rzeszutek :: Projects</title>
     <body>
-        <div class="font-sans container md:mx-auto md:w-4/6">
-            <h1 class="text-3xl font-semibold mb-4">
-                Selected Publications
-            </h1>
-            <p>
-                The following is a list of supplemental results from some of my
-                publications.  A full publications list is available on my
-                <a href="https://scholar.google.ca/citations?user=SWuGh3QAAAAJ">Google Scholar</a>
-                page.
-            </p>
-            <ul class="list-disc pl-10">
-                {% for publication in collections.publication reversed -%}
-                <li>
-                    {{ publication.date | date: "%Y" }} &hyphen;
-                    <a href="{{ publication.url }}">{{ publication.data.title }}</a>
-                    &nbsp;
-                    [<a href="http://dx.doi.org/{{ publication.data.doi }}">{{ publication.data.doi }}</a>]
-                </li>
-                {% endfor -%}
-            </ul>
-            <div class="mt-4">
+        <div class="font-sans container mx-auto px-2 w-full sm:px-0 sm:w-10/12 lg:max-w-screen-md">
+            <header>
+                <h1 class="text-5xl sm:text-6xl font-header font-thin">
+                    Richard Rzeszutek
+                    <span class="text-xl text-gray-400">PhD</span>
+                </h1>
+            </header>
+
+            <section class="section">
+                {% include sections/selected-publications.liquid %}
+            </section>
+
+            <div class="mt-4 text-xs text-gray-600">
                 &copy; {{ copyright.year }} Richard Rzeszutek
             </div>
         </div>

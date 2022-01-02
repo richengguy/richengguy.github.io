@@ -1,0 +1,20 @@
+<h1>
+    Selected Publications
+</h1>
+<p>
+    The following is a list of supplemental results from some of my
+    publications.  You can find a full, up-to-date list of publications on
+    my <a href="https://scholar.google.ca/citations?user=SWuGh3QAAAAJ">Google Scholar</a>
+    page.
+</p>
+<table class="w-full mt-2">
+    <tbody>
+        {% for publication in collections.publication reversed %}
+            <tr>
+                <td class="lg:pl-5"><time class="font-semibold">{{ publication.date | date: "%Y" }}</time></td>
+                <td><a href="{{ publication.url }}">{{ publication.data.title }}</a></td>
+                <td class="text-right hidden md:table-cell lg:pr-5">[<a href="http://dx.doi.org/{{ publication.data.doi }}">{{ publication.data.doi }}</a>]</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

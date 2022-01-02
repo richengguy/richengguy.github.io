@@ -1,0 +1,31 @@
+@import url("https://use.typekit.net/mzk5grm.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    /* Default styling for links */
+    a {
+        @apply text-blue-500;
+    }
+
+    a:hover {
+        @apply underline text-blue-900;
+    }
+
+}
+
+@layer components {
+
+    /* Styling used for anything instead of a <section class="section"> tag. */
+
+    section.section {
+        @apply mb-8;
+    }
+
+    section.section h1 {
+        @apply font-medium text-3xl text-gray-600;
+    }
+}
