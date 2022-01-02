@@ -9,8 +9,8 @@
   "scripts": {
     "build": "npm-run-all css:build html:build",
     "clean": "rimraf _build _site",
-    "css:build": "tailwindcss -i scss/style.css -o _build/css/style.css --minify",
-    "css:watch": "tailwindcss -i scss/style.css -o _build/css/style.css --watch",
+    "css:build": "tailwindcss -i scss/style.scss -o _build/css/style.css --minify",
+    "css:watch": "tailwindcss -i scss/style.scss -o _build/css/style.css --watch",
     "html:build": "npx @11ty/eleventy",
     "html:watch": "npx @11ty/eleventy --serve",
     "serve": "concurrently npm:css:watch npm:html:watch"

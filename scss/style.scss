@@ -4,9 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components
-{
-    /* These are only here as placeholders */
+@layer base {
+
+    /* Default styling for links */
     a {
         @apply text-blue-500;
     }
@@ -15,7 +15,4 @@
         @apply underline text-blue-900;
     }
 
-    section > h1 {
-        @apply text-3xl;
-    }
 }
