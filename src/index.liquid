@@ -6,8 +6,13 @@
     <link href="/css/style.css" rel="stylesheet"/>
     <title>Richard Rzeszutek :: Projects</title>
     <body>
-        <div class="font-sans container md:mx-auto md:w-4/6">
-            {% include sections/selected-publications.liquid %}
+        <div class="font-sans container md:mx-auto md:w-7/12">
+            <section class="section">
+                {% include sections/selected-publications.liquid %}
+            </section>
+            <div class="mt-4">
+                &copy; {{ copyright.year }} Richard Rzeszutek
+            </div>
         </div>
     </body>
 </html>

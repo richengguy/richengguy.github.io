@@ -1,24 +1,20 @@
-<section>
-    <h1 class="font-header font-medium">
-        Selected Publications
-    </h1>
-    <p>
-        The following is a list of supplemental results from some of my
-        publications.  A full publications list is available on my
-        <a href="https://scholar.google.ca/citations?user=SWuGh3QAAAAJ">Google Scholar</a>
-        page.
-    </p>
-    <ul class="list-disc pl-10">
-        {% for publication in collections.publication reversed -%}
-        <li>
-            {{ publication.date | date: "%Y" }} &hyphen;
-            <a href="{{ publication.url }}">{{ publication.data.title }}</a>
-            &nbsp;
-            [<a href="http://dx.doi.org/{{ publication.data.doi }}">{{ publication.data.doi }}</a>]
-        </li>
-        {% endfor -%}
-    </ul>
-    <div class="mt-4">
-        &copy; {{ copyright.year }} Richard Rzeszutek
-    </div>
-</section>
+<h1>
+    Selected Publications
+</h1>
+<p>
+    The following is a list of supplemental results from some of my
+    publications.  You can find a full, up-to-date list of publications on
+    my <a href="https://scholar.google.ca/citations?user=SWuGh3QAAAAJ">Google Scholar</a>
+    page.
+</p>
+<table class="w-full mt-2">
+    <tbody>
+        {% for publication in collections.publication reversed %}
+            <tr>
+                <td class="pl-5"><time class="font-semibold">{{ publication.date | date: "%Y" }}</time></td>
+                <td><a href="{{ publication.url }}">{{ publication.data.title }}</a></td>
+                <td class="pr-5 text-right">[<a href="http://dx.doi.org/{{ publication.data.doi }}">{{ publication.data.doi }}</a>]</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

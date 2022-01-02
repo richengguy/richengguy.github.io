@@ -16,3 +16,9 @@
     }
 
 }
+
+@layer components {
+    .section > h1 {
+        @apply font-header font-medium text-3xl;
+    }
+}
