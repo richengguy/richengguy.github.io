@@ -11,9 +11,9 @@
     <tbody>
         {% for publication in collections.publication reversed %}
             <tr>
-                <td class="pl-5"><time class="font-semibold">{{ publication.date | date: "%Y" }}</time></td>
+                <td class="lg:pl-5"><time class="font-semibold">{{ publication.date | date: "%Y" }}</time></td>
                 <td><a href="{{ publication.url }}">{{ publication.data.title }}</a></td>
-                <td class="pr-5 text-right">[<a href="http://dx.doi.org/{{ publication.data.doi }}">{{ publication.data.doi }}</a>]</td>
+                <td class="text-right hidden md:table-cell lg:pr-5">[<a href="http://dx.doi.org/{{ publication.data.doi }}">{{ publication.data.doi }}</a>]</td>
             </tr>
         {% endfor %}
     </tbody>

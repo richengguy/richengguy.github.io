@@ -18,7 +18,14 @@
 }
 
 @layer components {
-    .section > h1 {
+
+    /* Styling used for anything instead of a <section class="section"> tag. */
+
+    section.section {
+        @apply mb-8;
+    }
+
+    section.section h1 {
         @apply font-medium text-3xl text-gray-600;
     }
 }
