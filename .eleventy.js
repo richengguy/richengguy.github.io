@@ -1,4 +1,10 @@
+const markdown = require("markdown-it");
+const yaml = require("js-yaml");
+
 module.exports = function(eleventyConfig) {
+    // Enable custom data formats.
+    eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
+
     // Ensure eleventy is aware of SCSS changes.
     eleventyConfig.addWatchTarget("scss");
     eleventyConfig.addWatchTarget("_build");
@@ -9,6 +15,13 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/.nojekyll");
     eleventyConfig.addPassthroughCopy("src/CNAME");
     eleventyConfig.addPassthroughCopy("src/publications");
+
+    // Add a "markdown" filter to allow for some custom markdown usage.
+    md = markdown({
+        html: false,
+        linkify: true
+    });
+    eleventyConfig.addFilter("markdown", contents => md.render(contents));
 
     // Set 'src' at the source folder and have it output to '_site'.
     return {

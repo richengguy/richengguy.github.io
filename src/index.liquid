@@ -7,12 +7,16 @@
     <title>Richard Rzeszutek :: Projects</title>
     <body>
         <div class="font-sans container mx-auto px-2 w-full sm:px-0 sm:w-10/12 lg:max-w-screen-md">
-            <header>
+            <header class="mb-4">
                 <h1 class="text-5xl sm:text-6xl font-header font-thin">
                     Richard Rzeszutek
                     <span class="text-xl text-gray-400">PhD</span>
                 </h1>
             </header>
+
+            <section class="section">
+                {% include sections/projects.liquid %}
+            </section>
 
             <section class="section">
                 {% include sections/selected-publications.liquid %}
