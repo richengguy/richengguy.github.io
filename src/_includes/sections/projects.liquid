@@ -1,0 +1,9 @@
+<h1>
+    Projects
+</h1>
+
+{%- for project in collections.projects -%}
+    <p>
+        {{ project.data.title }}
+    </p>
+{%- endfor -%}
