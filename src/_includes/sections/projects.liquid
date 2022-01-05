@@ -2,8 +2,11 @@
     Projects
 </h1>
 
-{%- for project in collections.projects -%}
+{%- for project in collections.projects reversed -%}
     <p>
         {{ project.data.title }}
+    </p>
+    <p>
+        {{ project.data.description | markdown }}
     </p>
 {%- endfor -%}
