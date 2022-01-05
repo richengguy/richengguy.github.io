@@ -1,4 +1,9 @@
+const yaml = require("js-yaml");
+
 module.exports = function(eleventyConfig) {
+    // Enable custom data formats.
+    eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
+
     // Ensure eleventy is aware of SCSS changes.
     eleventyConfig.addWatchTarget("scss");
     eleventyConfig.addWatchTarget("_build");
