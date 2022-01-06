@@ -3,7 +3,7 @@
 </h1>
 
 <div class="grid sm:grid-cols-2 gap-6 mt-2">
-    {%- for project in collections.projects reversed -%}
+    {%- for project in collections.sortedProjects -%}
     <article class="flex flex-col">
         <header class="flex flex-row items-end border-b border-b-gray-400">
             <h2 class="flex-grow">
