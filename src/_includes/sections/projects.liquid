@@ -2,8 +2,8 @@
     Projects
 </h1>
 
-<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-2">
-    {%- for project in collections.projects reversed -%}
+<div class="grid sm:grid-cols-2 gap-6 mt-2">
+    {%- for project in collections.sortedProjects -%}
     <article class="flex flex-col">
         <header class="flex flex-row items-end border-b border-b-gray-400">
             <h2 class="flex-grow">
@@ -12,12 +12,12 @@
 
             <nav class="flex-none">
             {% if project.data.github %}
-                <a href="https://github.com/{{ project.data.github }}" class="md:text-sm">GitHub</a>
+                <a href="https://github.com/{{ project.data.github }}" class="sm:text-sm">GitHub</a>
             {% endif %}
 
             {% if project.data.site %}
                 <span class="inline-block ml-2 md:ml-1 h-3 border-l border-gray-300"></span>
-                <a href="{{ project.data.site }}" class="ml-2 md:text-sm md:ml-1">Site</a>
+                <a href="{{ project.data.site }}" class="ml-2 sm:text-sm md:ml-1">Site</a>
             {% endif %}
             </nav>
         </header>

@@ -23,6 +23,12 @@ module.exports = function(eleventyConfig) {
     });
     eleventyConfig.addFilter("markdown", contents => md.render(contents));
 
+    // Create a "sortedProjects" collection that has all of the projects sorted
+    // alphabetically, by name.
+    eleventyConfig.addCollection("sortedProjects", function(collectionsApi) {
+        return collectionsApi.getFilteredByTag("projects").sort((a, b) => a.data.title.localeCompare(b.data.title));
+    });
+
     // Set 'src' at the source folder and have it output to '_site'.
     return {
         dir: {
