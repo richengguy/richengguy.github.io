@@ -4,8 +4,8 @@ date: 2020-05-15
 github: richengguy/case-rate
 site: https://projects.rzeszutek.ca/case-rate
 description: |
-    A simple COVID-19 case rate tracker that can estimate the cases growth
-    factor.  It automatically updates itself every 24 hours and will be turned
-    off.  Eventually.
+    A project using time series analysis to estimate and predict COVID-19 case
+    rates.  It included a dashboard that updated nightly from May 2020 to August
+    2022 and could pull in data from multiple sources.
 permalink: false
 ---
