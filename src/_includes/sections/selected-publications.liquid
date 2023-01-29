@@ -9,10 +9,11 @@
 </p>
 <table class="w-full mt-2">
     <tbody>
-        {% for publication in collections.publication reversed %}
+        {% assign sorted_publications = publications | sort: "date" | reverse %}
+        {% for publication in sorted_publications %}
             <tr>
                 <td class="lg:pl-5"><time class="font-semibold">{{ publication.date | date: "%Y" }}</time></td>
-                <td><a href="{{ publication.url }}">{{ publication.data.title }}</a></td>
+                <td><a href="/publications/{{ publication.shortcode }}/">{{ publication.title }}</a></td>
                 <td class="text-right hidden md:table-cell lg:pr-5">[<a href="http://dx.doi.org/{{ publication.data.doi }}">{{ publication.data.doi }}</a>]</td>
             </tr>
         {% endfor %}
