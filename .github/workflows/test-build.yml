@@ -1,13 +1,13 @@
-name: Build and Deploy Site
+name: Test Build
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy
+  test-build:
+    name: Build Site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -24,9 +24,8 @@ jobs:
       - name: Build site assets
         run: npm run build
 
-      - name: Update deployment branch
-        run: ./scripts/update-gh-pages.sh
-        env:
-          DEPLOYMENT_BRANCH: deployment
-          DEPLOYMENT_FOLDER: _site
-          GITHUB_TOKEN: ${{ secrets.github_token }}
+      - name: Upload generated site
+        uses: actions/upload-artifact@v3
+        with:
+          name: generated-site
+          path: _site
