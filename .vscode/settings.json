@@ -1,0 +1,4 @@
+{
+    "liquid.engine": "11ty",
+    "liquid.format.enable": false
+}

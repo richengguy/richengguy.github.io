@@ -1,0 +1,21 @@
+[
+    {
+        "shortcode": "depthest",
+        "title": "A Framework for Estimating Relative Depth in Video",
+        "date": "2015-01-09",
+        "doi": "10.1016/j.cviu.2015.01.001"
+    },
+    {
+        "shortcode": "dsp2013",
+        "title": "Efficient automatic depth estimation for video",
+        "date": "2013-10-10",
+        "doi": "10.1109/ICDSP.2013.6622807"
+    },
+    {
+        "shortcode": "icassp2014",
+        "title": "Label Propagation Through Edge-preserving Filters",
+        "date": "2014-07-14",
+        "doi": "10.1109/ICASSP.2014.6853666"
+    }
+
+]
