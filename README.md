@@ -4,7 +4,7 @@ This repository contains the sources for https://projects.rzeszutek.ca.  The
 site is built with [Eleventy](https://www.11ty.dev) and deployed on the
 `deployment` branch.
 
-> Note: Building the site requires Node.js 16.x LTS.
+> Note: Building the site requires Node.js 20.x LTS.
 
 To build the site:
 
