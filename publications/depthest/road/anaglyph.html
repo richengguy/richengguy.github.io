@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta name="robots" content="noindex" />
+        <title>Relative Depth Estimation :: Road DBIR Comparison</title>
+        <link rel="stylesheet" href="../../res/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../res/css/results.css" />
+    </head>
+<body>
+    <div class="navbar navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href=".">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                    Back
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>
+                Road DBIR Comparison
+            </h1>
+        </div>
+
+        <div id="content">
+            <p>Select an image to view it at full resolution.</p>
+<p><div class="row">
+    <div class="col-md-6">
+        <a href="anaglyphs/road_online.jpg" class="thumbnail no-border">
+            <img alt="Online Method" src="anaglyphs/small/road_online.jpg" />
+        </a>
+    </div>
+    <div class="col-md-6 push-down">
+    <h3>
+        Online Propagation
+        <br />
+        <small>
+            DBIR result for the online method.
+        </small>
+    </h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <a href="anaglyphs/road_temporal.jpg" class="thumbnail no-border">
+            <img alt="Temporal Method" src="anaglyphs/small/road_temporal.jpg" />
+        </a>
+    </div>
+    <div class="col-md-6 push-down">
+    <h3>
+        Temporal Propagation
+        <br />
+        <small>
+            DBIR result for the temporal method.
+        </small>
+    </h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <a href="anaglyphs/road_acts.jpg" class="thumbnail no-border">
+            <img alt="ACTS" src="anaglyphs/small/road_acts.jpg" />
+        </a>
+    </div>
+    <div class="col-md-6 push-down">
+    <h3>
+        ACTS
+        <br />
+        <small>
+            DBIR result from a depth map obtained through the ACTS software package.
+        </small>
+    </h3>
+    </div>
+</div></p>
+
+        </div>
+
+        <footer class="copyright small">
+            <hr />
+            <div class="pull-left">
+                &copy; 2016 Richard Rzeszutek
+            </div>
+            <div class="pull-right">
+                Last Updated: Thu Jan 07 2016
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [
+                    [ '$', '$' ]
+                ]
+            }
+        });
+    </script>
+
+    <script defer="defer"  src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
