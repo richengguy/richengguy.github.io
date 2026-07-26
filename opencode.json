@@ -1,0 +1,16 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "permission": {
+        "*": "ask",
+        "glob": "allow",
+        "grep": "allow",
+        "lsp": "allow",
+        "read": {
+            "*": "allow",
+            ".vscode/*": "deny"
+        },
+        "question": "allow",
+        "webfetch": "allow",
+        "websearch": "allow"
+    }
+}
