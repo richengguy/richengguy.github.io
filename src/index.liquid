@@ -21,33 +21,6 @@
                 </div>
             </header>
 
-            <script>
-            (function(){
-              var toggle=document.getElementById('dark-toggle'),track=toggle.querySelector('div'),dot=toggle.querySelector('div+div');
-              function setDark(dark){
-                document.documentElement.classList.toggle('dark',dark);
-                dot.style.transform=dark?'translateX(20px)':'translateX(0)';
-                track.classList.toggle('bg-gray-700',dark);
-                track.classList.toggle('bg-gray-200',!dark);
-                track.classList.toggle('border-gray-600',dark);
-                track.classList.toggle('border-gray-300',!dark);
-                dot.classList.toggle('bg-gray-200',dark);
-                dot.classList.toggle('bg-white',!dark);
-              }
-              var stored=localStorage.getItem('darkMode');
-              if(stored!==null){setDark(stored==='1');}
-              else{setDark(window.matchMedia('(prefers-color-scheme:dark)').matches);}
-              toggle.addEventListener('click',function(){
-                var isDark=!document.documentElement.classList.contains('dark');
-                setDark(isDark);
-                localStorage.setItem('darkMode',isDark?'1':'0');
-              });
-              window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){
-                if(localStorage.getItem('darkMode')===null){setDark(e.matches);}
-              });
-            })();
-            </script>
-
             <section class="section">
                 {% include "sections/projects.liquid" %}
             </section>
@@ -60,5 +33,32 @@
                 &copy; {{ copyright.year }} Richard Rzeszutek
             </div>
         </div>
+
+        <script>
+        (function(){
+          var toggle=document.getElementById('dark-toggle'),track=toggle.querySelector('div'),dot=toggle.querySelector('div+div');
+          function setDark(dark){
+            document.documentElement.classList.toggle('dark',dark);
+            dot.style.transform=dark?'translateX(20px)':'translateX(0)';
+            track.classList.toggle('bg-gray-700',dark);
+            track.classList.toggle('bg-gray-200',!dark);
+            track.classList.toggle('border-gray-600',dark);
+            track.classList.toggle('border-gray-300',!dark);
+            dot.classList.toggle('bg-gray-200',dark);
+            dot.classList.toggle('bg-white',!dark);
+          }
+          var stored=localStorage.getItem('darkMode');
+          if(stored!==null){setDark(stored==='1');}
+          else{setDark(window.matchMedia('(prefers-color-scheme:dark)').matches);}
+          toggle.addEventListener('click',function(){
+            var isDark=!document.documentElement.classList.contains('dark');
+            setDark(isDark);
+            localStorage.setItem('darkMode',isDark?'1':'0');
+          });
+          window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){
+            if(localStorage.getItem('darkMode')===null){setDark(e.matches);}
+          });
+        })();
+        </script>
     </body>
 </html>
