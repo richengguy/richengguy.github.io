@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/style.css" rel="stylesheet"/>
     <title>Richard Rzeszutek :: Projects</title>
-    <body>
+    <body class="dark:bg-gray-900 dark:text-gray-100">
         <div class="font-sans container mx-auto px-2 w-full sm:px-0 sm:w-10/12 lg:max-w-screen-md">
             <header class="mb-4 mt-6">
-                <h1 class="text-5xl sm:text-6xl font-header font-thin">
-                    Richard Rzeszutek
-                    <span class="text-xl text-gray-400">PhD</span>
-                </h1>
+                <div class="flex items-end justify-between">
+                    <h1 class="text-5xl sm:text-6xl font-header font-thin">
+                        Richard Rzeszutek
+                        <span class="text-xl text-gray-400">PhD</span>
+                    </h1>
+                </div>
             </header>
 
             <section class="section">
@@ -22,9 +24,58 @@
                 {% include "sections/selected-publications.liquid" %}
             </section>
 
-            <div class="mt-4 text-xs text-gray-600">
-                &copy; {{ copyright.year }} Richard Rzeszutek
+            <div class="flex justify-between mt-4 pb-4 text-xs text-gray-600 dark:text-gray-400">
+                <span>&copy; {{ copyright.year }} Richard Rzeszutek</span>
+                <div class="flex items-center text-gray-400 dark:text-gray-500" id="dark-toggle">
+                    <button id="light-btn" class="px-1 font-bold">Light</button>
+                    <span class="px-1">|</span>
+                    <button id="dark-btn" class="px-1">Dark</button>
+                </div>
             </div>
         </div>
+
+        <script>
+        (function () {
+            var toggle = document.getElementById('dark-toggle');
+            var lightBtn = document.getElementById('light-btn');
+            var darkBtn = document.getElementById('dark-btn');
+
+            function setDark(dark) {
+                document.documentElement.classList.toggle('dark', dark);
+
+                if (dark) {
+                    darkBtn.classList.add('font-bold', 'text-s');
+                    lightBtn.classList.remove('font-bold', 'text-s');
+                } else {
+                    lightBtn.classList.add('font-bold', 'text-s');
+                    darkBtn.classList.remove('font-bold', 'text-s');
+                }
+            }
+
+            var stored = localStorage.getItem('darkMode');
+
+            if (stored !== null) {
+                setDark(stored === '1');
+            } else {
+                setDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+            }
+
+            lightBtn.addEventListener('click', function () {
+                setDark(false);
+                localStorage.setItem('darkMode', '0');
+            });
+
+            darkBtn.addEventListener('click', function () {
+                setDark(true);
+                localStorage.setItem('darkMode', '1');
+            });
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+                if (localStorage.getItem('darkMode') === null) {
+                    setDark(e.matches);
+                }
+            });
+        })();
+        </script>
     </body>
 </html>
