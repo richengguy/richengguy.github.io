@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     name: Build and Deploy
@@ -24,9 +28,11 @@ jobs:
       - name: Build site assets
         run: npm run build
 
-      - name: Update deployment branch
-        run: ./scripts/update-gh-pages.sh
-        env:
-          DEPLOYMENT_BRANCH: deployment
-          DEPLOYMENT_FOLDER: _site
-          GITHUB_TOKEN: ${{ secrets.github_token }}
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
