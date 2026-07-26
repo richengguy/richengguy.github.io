@@ -14,10 +14,7 @@
                         <span class="text-xl text-gray-400">PhD</span>
                     </h1>
 
-                    <button id="dark-toggle" class="relative inline-flex items-center h-6 mr-4" aria-label="Toggle dark mode">
-                        <div class="w-11 h-6 bg-gray-200 rounded-full border border-gray-300"></div>
-                        <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200"></div>
-                    </button>
+
                 </div>
             </header>
 
@@ -29,35 +26,57 @@
                 {% include "sections/selected-publications.liquid" %}
             </section>
 
-            <div class="mt-4 text-xs text-gray-600 dark:text-gray-400">
-                &copy; {{ copyright.year }} Richard Rzeszutek
+            <div class="flex justify-between mt-4 text-xs text-gray-600 dark:text-gray-400">
+                <span>&copy; {{ copyright.year }} Richard Rzeszutek</span>
+                <div class="flex items-center text-gray-400 dark:text-gray-500" id="dark-toggle">
+                    <button id="light-btn" class="px-1 font-bold">Light</button>
+                    <span class="px-1">|</span>
+                    <button id="dark-btn" class="px-1">Dark</button>
+                </div>
             </div>
         </div>
 
         <script>
-        (function(){
-          var toggle=document.getElementById('dark-toggle'),track=toggle.querySelector('div'),dot=toggle.querySelector('div+div');
-          function setDark(dark){
-            document.documentElement.classList.toggle('dark',dark);
-            dot.style.transform=dark?'translateX(20px)':'translateX(0)';
-            track.classList.toggle('bg-gray-700',dark);
-            track.classList.toggle('bg-gray-200',!dark);
-            track.classList.toggle('border-gray-600',dark);
-            track.classList.toggle('border-gray-300',!dark);
-            dot.classList.toggle('bg-gray-200',dark);
-            dot.classList.toggle('bg-white',!dark);
-          }
-          var stored=localStorage.getItem('darkMode');
-          if(stored!==null){setDark(stored==='1');}
-          else{setDark(window.matchMedia('(prefers-color-scheme:dark)').matches);}
-          toggle.addEventListener('click',function(){
-            var isDark=!document.documentElement.classList.contains('dark');
-            setDark(isDark);
-            localStorage.setItem('darkMode',isDark?'1':'0');
-          });
-          window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){
-            if(localStorage.getItem('darkMode')===null){setDark(e.matches);}
-          });
+        (function () {
+            var toggle = document.getElementById('dark-toggle');
+            var lightBtn = document.getElementById('light-btn');
+            var darkBtn = document.getElementById('dark-btn');
+
+            function setDark(dark) {
+                document.documentElement.classList.toggle('dark', dark);
+
+                if (dark) {
+                    darkBtn.classList.add('font-bold', 'text-s');
+                    lightBtn.classList.remove('font-bold', 'text-s');
+                } else {
+                    lightBtn.classList.add('font-bold', 'text-s');
+                    darkBtn.classList.remove('font-bold', 'text-s');
+                }
+            }
+
+            var stored = localStorage.getItem('darkMode');
+
+            if (stored !== null) {
+                setDark(stored === '1');
+            } else {
+                setDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+            }
+
+            lightBtn.addEventListener('click', function () {
+                setDark(false);
+                localStorage.setItem('darkMode', '0');
+            });
+
+            darkBtn.addEventListener('click', function () {
+                setDark(true);
+                localStorage.setItem('darkMode', '1');
+            });
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+                if (localStorage.getItem('darkMode') === null) {
+                    setDark(e.matches);
+                }
+            });
         })();
         </script>
     </body>
