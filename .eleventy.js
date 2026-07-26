@@ -1,10 +1,7 @@
 const markdown = require("markdown-it");
-const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
 const yaml = require("js-yaml");
 
 module.exports = function(eleventyConfig) {
-    eleventyConfig.addPlugin(UpgradeHelper);
-
     // Enable custom data formats.
     eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
 
