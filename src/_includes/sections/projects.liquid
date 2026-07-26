@@ -5,7 +5,7 @@
 <div class="grid sm:grid-cols-2 gap-6 mt-2">
     {%- for project in collections.sortedProjects -%}
     <article class="flex flex-col">
-        <header class="flex flex-row items-end border-b border-b-gray-400">
+        <header class="flex flex-row items-end border-b border-b-gray-400 dark:border-b-gray-600">
             <h2 class="flex-grow">
                 {{ project.data.title }}
             </h2>
@@ -16,7 +16,7 @@
             {% endif %}
 
             {% if project.data.site %}
-                <span class="inline-block ml-2 md:ml-1 h-3 border-l border-gray-300"></span>
+                <span class="inline-block ml-2 md:ml-1 h-3 border-l border-gray-300 dark:border-gray-600"></span>
                 <a href="{{ project.data.site }}" class="ml-2 sm:text-sm md:ml-1">Site</a>
             {% endif %}
             </nav>

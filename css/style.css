@@ -8,11 +8,11 @@
 
     /* Default styling for links */
     a {
-        @apply text-blue-500;
+        @apply text-blue-500 dark:text-blue-400;
     }
 
     a:hover {
-        @apply underline text-blue-900;
+        @apply underline text-blue-900 dark:text-blue-300;
     }
 
 }
@@ -26,10 +26,10 @@
     }
 
     section.section h1 {
-        @apply font-medium text-3xl text-gray-600;
+        @apply font-medium text-3xl text-gray-600 dark:text-gray-300;
     }
 
     section.section h2 {
-        @apply font-medium text-2xl text-gray-600;
+        @apply font-medium text-2xl text-gray-600 dark:text-gray-300;
     }
 }
